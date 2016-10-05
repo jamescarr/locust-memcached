@@ -12,7 +12,8 @@ services:
       - ".:/srv/app"
     command: "locust -f /srv/app/locustfile.py --master --master-bind-port=5557 --host cache"
   minion:
-    depends_on: overlord
+    depends_on:
+      - overlord
     build: .
     volumes:
       - ".:/srv/app"
